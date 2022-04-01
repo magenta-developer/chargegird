@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements ChargerResponseIn
     @Override
     public void onError(VolleyError error, int requestTag) {
         baseurl.requestFocus();
+
         baseurl.setError("Enter valid URL");
     }
 }
