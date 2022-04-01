@@ -48,8 +48,8 @@ afterEvaluate {
             release(MavenPublication) {
                 from components.release
                 groupId = 'com.github.magenta-developer'
-                artifactId = 'cgsdk'
-                version = '1.0'
+                artifactId = 'chargegird'
+                version = '1.1'
             }
         }
     }
