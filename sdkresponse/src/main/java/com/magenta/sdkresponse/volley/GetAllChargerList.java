@@ -1,37 +1,31 @@
 package com.magenta.sdkresponse.volley;
 
 import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
-import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.magenta.sdkresponse.utilties.ApplicationClass;
 
 
 import org.json.JSONArray;
-import org.json.JSONObject;
-import com.magenta.sdkresponse.interfaces.ChargerResponseInterface;
+
+import com.magenta.sdkresponse.interfaces.ChargerListResponseInterface;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Created by Rahul on 04--2-2022.
  */
-public class ChargerListWebService {
-    private ChargerResponseInterface mListener;
+public class GetAllChargerList {
+    private ChargerListResponseInterface mListener;
     private int mRequestMethod;
     private Context mContext;
     private String merchantKey ;
 
-    public ChargerListWebService(String baseURL, Context context,  ChargerResponseInterface listener,int requestTag,String merchantKey) {
+    public GetAllChargerList(String baseURL, Context context, ChargerListResponseInterface listener, int requestTag, String merchantKey) {
         mListener = listener;
         mRequestMethod = Request.Method.GET;
         this.mContext = context;

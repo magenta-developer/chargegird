@@ -23,15 +23,70 @@
         tools:layout_editor_absoluteX="44dp"
         tools:layout_editor_absoluteY="46dp" />
 
-    <TextView
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#009688"
-        android:padding="20sp"
+        android:padding="5sp"
         android:id="@+id/getallstation"
         android:textColor="@color/white"
         android:text="Get All station " />
+        <EditText
+            android:id="@+id/token"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            tools:layout_editor_absoluteX="44dp"
+            tools:layout_editor_absoluteY="46dp" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#009688"
+            android:padding="5sp"
+            android:id="@+id/getstationDetails"
+            android:textColor="@color/white"
+            android:text="Get station details " />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#009688"
+            android:padding="5sp"
+            android:layout_marginTop="10sp"
+            android:id="@+id/startcharging"
+            android:textColor="@color/white"
+            android:text="Start charging " />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#009688"
+            android:padding="5sp"
+            android:layout_marginTop="10sp"
+            android:id="@+id/chargingprocess"
+            android:textColor="@color/white"
+            android:text="Charging process" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#009688"
+            android:padding="5sp"
+            android:layout_marginTop="10sp"
+            android:id="@+id/stopcharging"
+            android:textColor="@color/white"
+            android:text="Stop  Charging" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#009688"
+            android:padding="5sp"
+            android:layout_marginTop="10sp"
+            android:id="@+id/transaction"
+            android:textColor="@color/white"
+            android:text="Transaction Detail" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
