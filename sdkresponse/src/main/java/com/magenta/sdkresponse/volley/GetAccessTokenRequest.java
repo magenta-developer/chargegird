@@ -8,6 +8,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.magenta.sdkresponse.interfaces.GetAccessTokenResponseInterface;
 import com.magenta.sdkresponse.interfaces.StartChargingResponseInterface;
 import com.magenta.sdkresponse.utilties.ApplicationClass;
 
@@ -19,36 +20,27 @@ import java.util.Map;
 /**
  * Created by Rahul on 04--2-2022.
  */
-public class StartChargingRequest {
-    private StartChargingResponseInterface mListener;
+public class GetAccessTokenRequest {
+    private GetAccessTokenResponseInterface mListener;
     private int mRequestMethod;
     private Context mContext;
     private String Token ;
 
-    public StartChargingRequest(String baseURL, Context context, StartChargingResponseInterface
-            listener, int requestTag, String Token, String mobile, String Chargeboxid
-            , String Chargertype , String Chargerserialno , String priceplan , String enterprise , String Createdby
-            , String chargingamount) {
+    public GetAccessTokenRequest(String baseURL, Context context, GetAccessTokenResponseInterface
+            listener, int requestTag, String source) {
         mListener = listener;
         mRequestMethod = Request.Method.POST;
         this.mContext = context;
         this.Token=Token;
         JSONObject jsonObject = new JSONObject();
         try {
-            jsonObject.put("mobile", Long.parseLong(mobile));
-            jsonObject.put("chargeboxid", Chargeboxid);
-            jsonObject.put("connectortype", Chargertype);
-            jsonObject.put("connectorno", Chargerserialno);
-            jsonObject.put("priceplan", priceplan);
-            jsonObject.put("enterprise", enterprise);
-            jsonObject.put("planid", "");
-            jsonObject.put("createdby", Createdby);
-            jsonObject.put("chargingamount", Integer.parseInt(chargingamount));
+            jsonObject.put("source", source);
+
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-        fetchJSONDataFromWebService(baseURL+"/sm/secure/api/v1/remote/start/startinitialize", jsonObject, requestTag);
+        fetchJSONDataFromWebService(baseURL+"/cm/api/v1/driver/guestuser", jsonObject, requestTag);
     }
 
     private void fetchJSONDataFromWebService(String URL, JSONObject jsonPayload, final int requestTag) {
@@ -60,7 +52,7 @@ public class StartChargingRequest {
                     @Override
                     public void onResponse(JSONObject response) {
 
-                        mListener.StartCharging(response, requestTag);
+                        mListener.getTokenResponse(response, requestTag);
                     }
                 },
                 new Response.ErrorListener() {

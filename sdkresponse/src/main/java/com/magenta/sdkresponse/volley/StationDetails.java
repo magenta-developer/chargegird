@@ -23,13 +23,13 @@ public class StationDetails {
     private StationDetailsResponseInterface mListener;
     private int mRequestMethod;
     private Context mContext;
-    private String merchantKey ;
+    private String Token ;
 
-    public StationDetails(String baseURL, Context context, StationDetailsResponseInterface listener, int requestTag, String merchantKey, String location) {
+    public StationDetails(String baseURL, Context context, StationDetailsResponseInterface listener, int requestTag, String Token, String location) {
         mListener = listener;
         mRequestMethod = Request.Method.POST;
         this.mContext = context;
-        this.merchantKey=merchantKey;
+        this.Token=Token;
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("location", location);
@@ -72,7 +72,6 @@ public class StationDetails {
         jsonObjReq.setTag(requestTag);
 
         jsonObjReq.setRetryPolicy(new DefaultRetryPolicy(1200000,0,DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        //  jsonObjReq.setRetryPolicy(new DefaultRetryPolicy(10000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         ApplicationClass.getInstance().addToRequestQueue(jsonObjReq);
     }
 
@@ -80,7 +79,7 @@ public class StationDetails {
     private HashMap<String, String> getCustomHeaders() {
         HashMap<String, String> headers = new HashMap<String, String>();
         headers.put("Content-Type", "application/json; charset=utf-8");
-        headers.put("Authorization", "basic " +merchantKey);
+        headers.put("Authorization", "basic " +Token);
         headers.put("Accept", "'application/json");
 
 

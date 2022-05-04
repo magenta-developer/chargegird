@@ -24,15 +24,15 @@ public class TransactionRequest {
     private TransactionResponseInterface mListener;
     private int mRequestMethod;
     private Context mContext;
-    private String merchantKey ;
+    private String Token ;
 
     public TransactionRequest(String baseURL, Context context, TransactionResponseInterface
-            listener, int requestTag, String merchantKey, String mobile, String transactionid
+            listener, int requestTag, String Token, String mobile, String transactionid
            ) {
         mListener = listener;
         mRequestMethod = Request.Method.POST;
         this.mContext = context;
-        this.merchantKey=merchantKey;
+        this.Token=Token;
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("mobile", Long.parseLong(mobile));
@@ -77,7 +77,6 @@ public class TransactionRequest {
         jsonObjReq.setTag(requestTag);
 
         jsonObjReq.setRetryPolicy(new DefaultRetryPolicy(1200000,0,DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        //  jsonObjReq.setRetryPolicy(new DefaultRetryPolicy(10000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         ApplicationClass.getInstance().addToRequestQueue(jsonObjReq);
     }
 
@@ -85,7 +84,7 @@ public class TransactionRequest {
     private HashMap<String, String> getCustomHeaders() {
         HashMap<String, String> headers = new HashMap<String, String>();
         headers.put("Content-Type", "application/json; charset=utf-8");
-        headers.put("Authorization", "basic " +merchantKey);
+        headers.put("Authorization", "basic " +Token);
         headers.put("Accept", "'application/json");
 
 

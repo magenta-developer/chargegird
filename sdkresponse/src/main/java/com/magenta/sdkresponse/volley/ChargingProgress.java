@@ -24,16 +24,16 @@ public class ChargingProgress {
     private ChargingProgressResponseInterface mListener;
     private int mRequestMethod;
     private Context mContext;
-    private String merchantKey ;
+    private String Token ;
 
     public ChargingProgress(String baseURL, Context context, ChargingProgressResponseInterface
-            listener, int requestTag, String merchantKey, String mobile, String Chargeboxid
+            listener, int requestTag, String Token, String mobile, String Chargeboxid
             , String Chargertype , String Chargerserialno , String transactionid
             , String chargingamount) {
         mListener = listener;
         mRequestMethod = Request.Method.POST;
         this.mContext = context;
-        this.merchantKey=merchantKey;
+        this.Token=Token;
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("mobile", Long.parseLong(mobile));
@@ -81,7 +81,6 @@ public class ChargingProgress {
         jsonObjReq.setTag(requestTag);
 
         jsonObjReq.setRetryPolicy(new DefaultRetryPolicy(1200000,0,DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        //  jsonObjReq.setRetryPolicy(new DefaultRetryPolicy(10000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         ApplicationClass.getInstance().addToRequestQueue(jsonObjReq);
     }
 
@@ -89,7 +88,7 @@ public class ChargingProgress {
     private HashMap<String, String> getCustomHeaders() {
         HashMap<String, String> headers = new HashMap<String, String>();
         headers.put("Content-Type", "application/json; charset=utf-8");
-        headers.put("Authorization", "basic " +merchantKey);
+        headers.put("Authorization", "basic " +Token);
         headers.put("Accept", "'application/json");
 
 

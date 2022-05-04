@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements ChargerListRespon
         token = findViewById(R.id.token);
         findViewById(R.id.getallstation).setOnClickListener(view -> {
             if ( Patterns.WEB_URL.matcher(baseurl.getText().toString()).matches()){
-                new GetAllChargerList(baseurl.getText().toString(),this,this,GET_STATION_LIST,"");
+                new GetAllChargerList(baseurl.getText().toString(),this,this,GET_STATION_LIST,"","");
             }else {
                 baseurl.requestFocus();
                 baseurl.setError("Enter valid URL");

@@ -23,14 +23,14 @@ public class GetAllChargerList {
     private ChargerListResponseInterface mListener;
     private int mRequestMethod;
     private Context mContext;
-    private String merchantKey ;
+    private String Token ;
 
-    public GetAllChargerList(String baseURL, Context context, ChargerListResponseInterface listener, int requestTag, String merchantKey) {
+    public GetAllChargerList(String baseURL, Context context, ChargerListResponseInterface listener, int requestTag, String Token,String source) {
         mListener = listener;
         mRequestMethod = Request.Method.GET;
         this.mContext = context;
-        this.merchantKey=merchantKey;
-        fetchJSONArrayFromWebService(baseURL+"/am/api/v1/getlocations", null, requestTag);
+        this.Token=Token;
+        fetchJSONArrayFromWebService(baseURL+"/am/api/v1/getlocations?source="+source, null, requestTag);
     }
 
 
@@ -68,7 +68,7 @@ public class GetAllChargerList {
     private HashMap<String, String> getCustomHeaders() {
         HashMap<String, String> headers = new HashMap<String, String>();
         headers.put("Content-Type", "application/json; charset=utf-8");
-        headers.put("Authorization", "basic " +merchantKey);
+        headers.put("Authorization", "basic " +Token);
         headers.put("Accept", "'application/json");
 
 
