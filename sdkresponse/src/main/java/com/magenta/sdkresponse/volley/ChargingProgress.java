@@ -29,7 +29,7 @@ public class ChargingProgress {
     public ChargingProgress(String baseURL, Context context, ChargingProgressResponseInterface
             listener, int requestTag, String Token, String mobile, String Chargeboxid
             , String Chargertype , String Chargerserialno , String transactionid
-            , String chargingamount) {
+            , String chargingamount ,String source) {
         mListener = listener;
         mRequestMethod = Request.Method.POST;
         this.mContext = context;
@@ -41,6 +41,7 @@ public class ChargingProgress {
             jsonObject.put("connectortype", Chargertype);
             jsonObject.put("connectorno", Chargerserialno);
             jsonObject.put("planid", "");
+            jsonObject.put("source",source);
             jsonObject.put("chargingamount", Integer.parseInt(chargingamount));
             jsonObject.put("transactionid", Long.parseLong(transactionid));
 

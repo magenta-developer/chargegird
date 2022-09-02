@@ -27,7 +27,7 @@ public class StopChargingRequest {
 
     public StopChargingRequest(String baseURL, Context context, StopChargingResponseInterface
             listener, int requestTag, String Token, String mobile, String Chargeboxid
-            , String Chargertype , String Chargerserialno ) {
+            , String Chargertype , String Chargerserialno ,String source) {
         mListener = listener;
         mRequestMethod = Request.Method.POST;
         this.mContext = context;
@@ -38,6 +38,7 @@ public class StopChargingRequest {
             jsonObject.put("chargeboxid", Chargeboxid);
             jsonObject.put("connectortype", Chargertype);
             jsonObject.put("connectorno", Chargerserialno);
+            jsonObject.put("source",source);
 
 
         } catch (Exception e) {

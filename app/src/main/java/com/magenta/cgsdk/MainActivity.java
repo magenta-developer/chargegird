@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements ChargerListRespon
         findViewById(R.id.startcharging).setOnClickListener(view -> {
             if (!baseurl.getText().toString().isEmpty()){
                 new StartChargingRequest(baseurl.getText().toString(),this,this,GET_STATION_DETAILS,token.getText().toString(),"",
-                        "","","","","","","");
+                        "","","","","","","","");
             }else {
                 baseurl.requestFocus();
                 baseurl.setError("Enter valid URL");
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements ChargerListRespon
         findViewById(R.id.chargingprocess).setOnClickListener(view -> {
             if (!baseurl.getText().toString().isEmpty()){
                 new ChargingProgress(baseurl.getText().toString(),this,this,GET_STATION_DETAILS,token.getText().toString(),"",
-                        "","","","","");
+                        "","","","","","");
             }else {
                 baseurl.requestFocus();
                 baseurl.setError("Enter valid URL");
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements ChargerListRespon
         findViewById(R.id.stopcharging).setOnClickListener(view -> {
             if (!baseurl.getText().toString().isEmpty()){
                 new StopChargingRequest(baseurl.getText().toString(),this,this,GET_STATION_DETAILS,token.getText().toString(),"",
-                        "","","");
+                        "","","","");
             }else {
                 baseurl.requestFocus();
                 baseurl.setError("Enter valid URL");
